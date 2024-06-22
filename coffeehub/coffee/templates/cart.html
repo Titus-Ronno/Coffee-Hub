@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Choose the Coffee you want</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+ 
+    {% for CoffeeBean in CoffeeStore %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+            <img src="{{CoffeeBean.image}}" class="card-img-top" alt="..."style="height: 200px; object-fit:cover; filter: brightness(0.7);">
+            <div class="card-body">
+             <h5 class="card-title">{{CoffeeBean.name}}</h5>
+             <p class="card-text">${{CoffeeBean.price}}</p>
+             <a href="{% url 'schedule_training' %}" class="btn btn-primary schedule-training" data-coffee-id="{{CoffeeBean.id}}">Schedule Training</a>
+            </div>
+            </div>
+        </div>
+
+    {% endfor %}
+ 
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const scheduleButtons = document.querySelectorAll('.schedule-training');
+        
+        scheduleButtons.forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                const coffeeId = button.dataset.coffeeId;
+                // Make AJAX request to Django view to schedule training
+                fetch("{% url 'schedule_training' %}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}' // Include CSRF token for security
+                    },
+                    body: JSON.stringify({ coffee_id: coffeeId })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Training scheduled successfully, you can show a success message or perform other actions
+                        console.log('Training scheduled successfully for coffee with ID:', coffeeId);
+                        // For demonstration, reload the page
+                        window.location.reload();
+                    } else {
+                        // Handle error responses
+                        console.error('Failed to schedule training');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error occurred while scheduling training:', error);
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}

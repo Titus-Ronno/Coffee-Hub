@@ -1,0 +1,82 @@
+/* Targeting the section heading */
+.section-heading {
+    text-align: center;
+    font-size: 24px;
+    color: #333; /* Adjust color as needed */
+    margin-bottom: 20px; /* Add some bottom margin */
+}
+
+/* Targeting the card container */
+.card {
+    border: 1px solid #ddd; /* Add border to cards */
+    border-radius: 8px; /* Add border radius */
+    transition: box-shadow 0.3s ease; /* Add transition for box shadow */
+}
+.tile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.19), 0 16px 16px rgba(0, 0, 0, 0.23);
+  }
+/* Adding box shadow on hover for cards */
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
+}
+
+/* Targeting the card image */
+.card-img-top {
+    border-top-left-radius: 8px; /* Add border radius for top left corner of image */
+    border-top-right-radius: 8px; /* Add border radius for top right corner of image */
+}
+
+/* Targeting the card title */
+.card-title {
+    font-size: 18px;
+    margin-bottom: 0; /* Remove bottom margin for title */
+}
+
+/* Targeting the card text */
+.card-text {
+    color: #666; /* Adjust color as needed */
+}
+
+  body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .footer {
+            background-color: #6f4e37; /* Coffee brown color */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .footer .nav-links, .footer .social-media, .footer .contact-info {
+            margin-bottom: 20px;
+        }
+        .footer .nav-links a, .footer .social-media a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer .social-media a {
+            font-size: 1.5em;
+        }
+        .footer .contact-info p {
+            margin: 5px 0;
+        }
+        .footer .nav-links a:hover, .footer .social-media a:hover {
+            text-decoration: underline;
+        }

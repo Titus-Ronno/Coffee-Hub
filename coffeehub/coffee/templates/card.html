@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'base.css' %}">
+<link rel="stylesheet" href="{% static 'card.css' %}">
+
+{% block navbar %}
+{% endblock %}
+{% block content %}
+{% include 'home.html' %}
+  <h3 class="section-heading text-center" >VARIETIES</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4 ">
+    {% for card in cards %}
+        <div class="col">
+            <div class="card h-100  tile">
+            <img src="{{ card.image }}" class="card-img-top" alt="Card Image" style="height: 300px; object-fit:cover; filter: brightness(0.7);">
+            <div class="card-body">
+            <h5 class="card-title">{{ card.title }}</h5>
+            <p class="card-text">{{ card.text }}</p>
+            </div>
+            </div>
+          </div>
+        
+    {% endfor %}
+</div>
+{% include 'submit-reply.html' %}
+
+{% endblock %}

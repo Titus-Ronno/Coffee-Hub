@@ -1,0 +1,28 @@
+
+.c-item{
+    height: 480px;
+
+}
+.c-img{
+    height: 100px;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+    .buy-button {
+        background-color: #6f4e37;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        display: inline-block;
+    }
+    
+    .buy-button a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .buy-button:hover {
+        color: #1010ad; /* Darker shade for hover effect */
+    }
+

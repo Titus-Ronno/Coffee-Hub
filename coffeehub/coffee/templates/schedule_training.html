@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br>
+<h1 class="text-center">Schedule Training</h1>
+<div class="mx-auto rounded text-grey shadow-lg" style="background-color: rgba(253, 251, 251, 0.651);  ; width: 370px; ; ">   
+  <form method="post" class="px-3 py-1">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">User</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="username">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Date</label>
+        <input type="date" class="form-control" id="exampleFormControlInput1" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Time</label>
+        <input type="time" class="form-control" id="exampleFormControlInput1" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Duration</label>
+        <input type="number" class="form-control" id="exampleFormControlInput1" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Details</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+      </div>
+     
+      <button type="submit" class="btn btn-outline-success">Schedule</button>
+    </form>
+  </div>
+{% endblock %}

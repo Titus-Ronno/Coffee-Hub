@@ -1,22 +1,77 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<h1>Choose the Coffee you want</h1>
-<div class="row">
- 
-    {% for CoffeeBean in CoffeeStore %}
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-            <img src="{{CoffeeBean.image}}" class="card-img-top" alt="...">
-            <div class="card-body">
-             <h5 class="card-title">{{CoffeeBean.name}}</h5>
-             <p class="card-text">${{CoffeeBean.price}}</p>
-             <a href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-            </div>
-        </div>
+{% load static %}
 
-    {% endfor %}
- 
-</div>
+<link rel="stylesheet" href="{% static 'home.css' %}">
+
+{% block content %}
+<div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#chero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active c-item">
+        <img src="{% static 'nursery.jpg' %}" class="d-block w-100 c-img" alt="..." >
+        <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+          <p class="mt-5 fs-3 text-uppercase" style="font-family: 'Roboto', sans-serif; font-weight: 500; color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Nursery Bed Construction</p>
+          <h1 class="display-1 fw-bolder text-capitalize" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Site selection</h1>
+          <button class=" px-4 py-2 fs-5" style="background-color: #6f4e37;border-radius: 5.5rem;">Get Started</button>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{% static 'green.jpg' %}" class="d-block w-100 c-img" alt="..." >
+        <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+          <p class="mt-5 fs-3 text-uppercase" style="font-family: 'Roboto', sans-serif; font-weight: 500; color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">The roundness or fullness of the coffee</p>
+          <h1 class="display-1 fw-bolder text-capitalize" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Time complexities</h1>
+          <button class=" px-4 py-2 fs-5" style="background-color: #6f4e37; border-radius: 5.5rem;">Get Started</button>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{% static 'yellow.jpg' %}" class="d-block w-100 c-img" alt="...">
+        <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+          <p class="mt-5 fs-3 text-uppercase" style="font-family: 'Roboto', sans-serif; font-weight: 500; color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Harvesting and Cherry Sorting</p>
+          <h1 class="display-1 fw-bolder text-capitalize" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Know which .</h1>
+          <button class=" px-4 py-2 fs-5" style="background-color: #6f4e37; border-radius: 5.5rem;">Get Started</button>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{% static 'landing2.jpg' %}" class="d-block w-100 c-img" alt="...">
+        <div class="carousel-caption top-0 mt-4 d-none d-md-block">
+          <p class="mt-5 fs-3 text-uppercase " style="font-family: 'Roboto', sans-serif; font-weight: 500; color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">Get to know the stages in processing</p>
+          <h1 class="display-1 fw-bolder text-capitalize" style="font-family: 'Roboto', sans-serif; font-weight: 700; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Parchment handling.</h1>
+          <button class=" px-4 py-2 fs-5" style="background-color: #6f4e37;border-radius: 5.5rem;">Get Started</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="eye" style="width: 50%;">
+    <h1>A variety for you</h1>
+    <h2>
+      100% Organic, Step into your new favorite coffee hub, where we celebrate the diversity of coffee  
+    </h2>
+    <button class="buyButton" style="background-color:#6f4e37;; color: #fff;" >
+      <a href="{% url 'train' %}" style="text-decoration: none; color: inherit;"> Book Training</a>
+    </button>
+  </div>
+ <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- custom JavaScript file -->
+<script src="{% static 'home.js' %}"></script>
+
+{% endblock %}
+
+{% block footer %}
 {% endblock %}
